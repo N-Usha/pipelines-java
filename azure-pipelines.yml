@@ -26,12 +26,10 @@ steps:
     reportDirectory: '$(System.DefaultWorkingDirectory)/**/site/jacoco'
     failIfCoverageEmpty: true
 
-- task: CopyFiles@2
+- task: AzureWebApp@1
+  displayName: 'Azure Web App Deploy: JavaSpring'
   inputs:
-    contents: '**/*.war'
-    targetFolder: '$(build.artifactStagingDirectory)'
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    artifactName: 'war'
-    pathToPublish: '$(build.artifactStagingDirectory)'
+    azureSubscription: 'JavaSpring - Service Endpoint'
+    appType: webApp
+    appName: JavaSpring
+    package: '$(System.DefaultWorkingDirectory)\**\*.war'
