@@ -32,4 +32,4 @@ steps:
     azureSubscription: 'JavaSpring - Service Endpoint'
     appType: webApp
     appName: JavaSpring
-    package: '$(System.DefaultWorkingDirectory)\**\*.war'
+    package: '$(System.DefaultWorkingDirectory)/**/*.war'
